@@ -29,7 +29,8 @@ namespace :dataset do
           sleep 10 # hugging face has rate limiting so it is better to add delay here to not get banned
           puts "Processing offset #{offset} out of #{lines_amount} lines"
         end
-      rescue
+      rescue => e
+        puts "Error occurred #{e}. Retrying in 5 minutes"
         # Congratulations! We are temporary blocked. Let's wait for another 5 minutes to try again
         retries += 1
         sleep 300
