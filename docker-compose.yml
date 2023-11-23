@@ -9,6 +9,7 @@ services:
       RAILS_ENV: development
       DATABASE_URL: "postgres://postgres:password@db/prompts"
       FOUNDELASTICSEARCH_URL: http://elasticsearch:9200
+      OPENAI_KEY: ${OPENAI_KEY}
     stdin_open: true
     tty: true
     volumes:

@@ -35,6 +35,6 @@ namespace :dataset do
         retries += 1
         sleep 60
       end
-    end while offset < lines_amount || retries < 3
+    end while offset < lines_amount && retries < 3
   end
 end
