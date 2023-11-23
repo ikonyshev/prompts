@@ -4,9 +4,22 @@ import Rails from '@rails/ujs';
 export default class extends Controller {
   static targets = ["suggestions", "vectorSuggestions"]
 
+  #timer = null
+
   update(e) {
-    this.#searchSuggestions(e.target.value, this.suggestionsTarget)
-    this.#searchSuggestions(e.target.value, this.vectorSuggestionsTarget, 'vector')
+    // Using timer to fire event after 500ms to prevent too many requests.
+    if (this.#timer) {
+      clearTimeout(this.#timer)
+    }
+
+    const target = this.suggestionsTarget
+    const vectorTarget = this.vectorSuggestionsTarget
+    const query = e.target.value
+
+    this.#timer = setTimeout(() => {
+      this.#searchSuggestions(query, target)
+      this.#searchSuggestions(query, vectorTarget, 'vector')
+    }, 500)
   }
 
   #searchSuggestions(query, target, vector = false) {
