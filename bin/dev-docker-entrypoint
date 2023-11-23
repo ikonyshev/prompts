@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+# Check if we have a stale pid
+if [ -f tmp/pids/server.pid ]; then
+  rm tmp/pids/server.pid
+fi
+
+# Run bundle install if it is updated
+bundle check || bundle install
+
+# Create/migrate/seed database
+bundle exec rails db:prepare
+
+exec ${@}

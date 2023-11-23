@@ -1,0 +1,20 @@
+<div>
+  <h2 class="text-2xl font-bold">Let's look at prompts</h2>
+
+  <div class="mt-2">
+    <p class="text-slate-300">
+      Finding the most relevant prompts in dataset using different methods.
+      Dataset has <span class="font-bold"><%= @count %></span> entries.
+    </p>
+    <p>
+      Start typing query to show suggestions.
+    </p>
+  </div>
+
+  <div data-controller="prompts">
+    <input type="text" data-action="input->prompts#update" placeholder="Query...">
+    <div data-prompts-target="suggestions" class="text-xs mt-4">
+      No suggestions found.
+    </div>
+  </div>
+</div>
