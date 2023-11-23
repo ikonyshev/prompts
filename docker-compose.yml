@@ -7,10 +7,7 @@ services:
       dockerfile: Dockerfile.dev
     environment:
       RAILS_ENV: development
-      APP_DB_NAME: prompts
-      APP_DB_USER: postgres
-      APP_DB_PASSWORD: password
-      APP_DB_HOST: db
+      DATABASE_URL: "postgres://postgres:password@db/prompts"
       FOUNDELASTICSEARCH_URL: http://elasticsearch:9200
     stdin_open: true
     tty: true
