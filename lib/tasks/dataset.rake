@@ -30,10 +30,10 @@ namespace :dataset do
           puts "Processing offset #{offset} out of #{lines_amount} lines"
         end
       rescue => e
-        puts "Error occurred #{e}. Retrying in 5 minutes"
+        puts "Error occurred #{e}. Retrying in 60 seconds"
         # Congratulations! We are temporary blocked. Let's wait for another 5 minutes to try again
         retries += 1
-        sleep 300
+        sleep 60
       end
     end while offset < lines_amount || retries < 3
   end
