@@ -13,6 +13,7 @@
 
   <div data-controller="prompts">
     <input type="text" data-action="input->prompts#update" placeholder="Query...">
+    <h3 class="mt-5 font-bold text-xl">Default ElasticSearch algorithm:</h3>
     <div data-prompts-target="suggestions" class="text-xs mt-4">
       No suggestions found.
     </div>
@@ -21,6 +22,11 @@
       I want to add some fun, and utilize vector similarity search functionality
       using OpenAI vectorizer. It can be replaced by publicly available pretrained
       models like BERT or Word2vec, but it is easier to implement.
+    </div>
+    <h3 class="mt-5 font-bold text-xl">Vector search:</h3>
+    <div>
+      This approach utilizes ElasticSearch cosine similarity vector search functionality.
+      Vectors are generated using OpenAI embeddings API, text-embedding-ada-002 model.
     </div>
     <div data-prompts-target="vectorSuggestions" class="text-xs mt-4">
       No suggestions found.
