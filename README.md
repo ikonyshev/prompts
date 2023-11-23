@@ -6,7 +6,9 @@ Also, I don't think using React or other heavy-weight frontend library is needed
 
 ## Search approach
 
-Just using `elasticsearch-rails` gem. But this is not fun. To add some fun I'm adding OpenAI and vector search. The UI shows both results so we can compare quality.
+Just using `elasticsearch-rails` gem. But this is not fun. To add some fun I implemented OpenAI and vector search. 
+The UI shows both results, so we can compare quality. To enable vector search create `.env` file with OPENAI_KEY environment
+variable.
 
 ## How to start it
 

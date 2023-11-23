@@ -33,6 +33,7 @@ class Prompt < ApplicationRecord
 
   private
 
+  # I'd move this and ElasticSearch indexing to Sidekiq job for optimal performance in production.
   def update_feature_vector
     self.feature_vector = $openai_client.get_embeddings(self.text) unless $openai_client.nil?
   end
